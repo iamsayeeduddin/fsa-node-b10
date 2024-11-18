@@ -1,0 +1,20 @@
+{
+  "name": "firstprj",
+  "version": "1.0.0",
+  "description": "A Backend Server on NodeJS",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamsayeeduddin/fsa-node-b10.git"
+  },
+  "author": "Syed Sayeeduddin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamsayeeduddin/fsa-node-b10/issues"
+  },
+  "homepage": "https://github.com/iamsayeeduddin/fsa-node-b10#readme"
+}
