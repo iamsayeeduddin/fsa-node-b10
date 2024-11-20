@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/iamsayeeduddin/fsa-node-b10/issues"
   },
-  "homepage": "https://github.com/iamsayeeduddin/fsa-node-b10#readme"
+  "homepage": "https://github.com/iamsayeeduddin/fsa-node-b10#readme",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
 }
