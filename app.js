@@ -1,22 +1,18 @@
 import express from "express";
+import defaultRouter from "./routes/defaultRoute.js";
+import booksRouter from "./routes/booksRoute.js";
 
 const app = express();
 
 app.listen(5000, () => console.log("Server is up & Running!"));
 
-let books = [
-  { id: 1, title: "The Great Gatsby", author: "F. Scott Fitzgerald" },
-  { id: 2, title: "To Kill a Mockingbird", author: "Harper Lee" },
-  { id: 3, title: "1984", author: "George Orwell" },
-  { id: 4, title: "Pride and Prejudice", author: "Jane Austen" },
-];
+app.use("/", defaultRouter);
 
-app.use("/welcome", (req, res) => {
-  res.status(200).send("Welcome to Express JS!");
-});
-
-app.use("/books", (req, res) => {
-  res.status(200).json(books);
-});
+app.use("/books", booksRouter);
 
 /// HTTP METHODS - GET, POST, PATCH, PUT, DELETE
+
+/// http://localhost:5000/users/getUsersList
+/// http://localhost:5000/users/addUser
+/// http://localhost:5000/users/updateUser
+/// http://localhost:5000/users/deleteUser
