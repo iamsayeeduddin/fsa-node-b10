@@ -5,6 +5,7 @@ import booksRouter from "./routes/booksRoute.js";
 const app = express();
 
 app.listen(5000, () => console.log("Server is up & Running!"));
+app.use(express.json()); /// Parses any JSON coming in req
 
 app.use("/", defaultRouter);
 
