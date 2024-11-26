@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/iamsayeeduddin/fsa-node-b10#readme",
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "mongoose": "^8.8.3"
   }
 }
