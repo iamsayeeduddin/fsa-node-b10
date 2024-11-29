@@ -3,6 +3,7 @@ import { add, deleteCourse, get, update, updatePut } from "../controller/courseC
 const router = express.Router();
 
 router.get("/courseList", get);
+router.get("/courseList/:page/:pageSize", get);
 router.post("/addCourse", add);
 router.patch("/updateCourse", update);
 router.put("/compUpdateCourse", updatePut);

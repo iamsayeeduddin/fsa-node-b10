@@ -1,9 +1,24 @@
 import courseModel from "../models/coursesModel.js";
+import { getOptions } from "../utils/utils.js";
+
+/// 10 Records = 1 Page - 100 Records
+/// 10 Records = 1 - 105 Records
+// Page Size 10
+
+/// Skip = (page - 1) * page size
+// 1st Page = 1-10
+// 2nd Page = 11 - 20
 
 const get = async (req, res) => {
   try {
-    const courses = await courseModel.find();
-    res.status(200).json({ message: "Courses Fetched Successfully!", success: true, data: courses });
+    const { sort, dir, skip, pageSize } = getOptions(req);
+    const courses = await courseModel
+      .find()
+      .sort({ [sort]: dir })
+      .skip(skip)
+      .limit(pageSize);
+    const totalRecords = await courseModel.countDocuments();
+    res.status(200).json({ message: "Courses Fetched Successfully!", success: true, data: courses, totalRecords });
   } catch (err) {
     res.status(500).json({ message: "Internal Server Error!", success: false });
   }
