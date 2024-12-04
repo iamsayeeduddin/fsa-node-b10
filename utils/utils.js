@@ -3,7 +3,7 @@ const getOptions = (req) => {
   const pageSize = parseInt(req.params.pageSize) || 10;
   const page = +req.params.page || 1;
   const skip = (page - 1) * pageSize;
-  const { dir, sort } = req.query;
+  const { dir = "asc", sort = "name" } = req.query;
   let filter = {};
   if (search) {
     filter = {

@@ -20,6 +20,7 @@ const get = async (req, res) => {
     const totalRecords = await courseModel.countDocuments();
     res.status(200).json({ message: "Courses Fetched Successfully!", success: true, data: courses, totalRecords });
   } catch (err) {
+    console.log(err);
     res.status(500).json({ message: "Internal Server Error!", success: false });
   }
 };

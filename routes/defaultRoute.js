@@ -2,7 +2,7 @@ import express from "express";
 
 const router = express.Router();
 
-router.get("/welcome", (req, res) => {
+router.post("/welcome", (req, res) => {
   res.status(200).json({ message: "Welcome to My Backend Server!", success: true });
 });
 
