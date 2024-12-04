@@ -8,8 +8,10 @@ const app = express();
 
 app.listen(5000, () => console.log("Server is up & Running!"));
 
+const dbURL = "mongodb+srv://sayeed:dbConnection24@mydb.jgueb.mongodb.net/?retryWrites=true&w=majority&appName=MyDB";
+
 mongoose
-  .connect("mongodb://localhost:27017/firstPrj")
+  .connect(dbURL)
   .then(() => console.log("DB Connected Successfully!"))
   .catch((err) => console.log(err));
 
