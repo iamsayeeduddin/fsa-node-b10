@@ -2,6 +2,7 @@ import express from "express";
 import defaultRouter from "./routes/defaultRoute.js";
 import booksRouter from "./routes/booksRoute.js";
 import courseRouter from "./routes/courseRoute.js";
+import userRouter from "./routes/userRoute.js";
 import mongoose from "mongoose";
 
 const app = express();
@@ -25,10 +26,11 @@ const middleware = (req, res, next) => {
   }
 };
 
-app.use("/", middleware, defaultRouter);
+app.use("/", defaultRouter);
 
 app.use("/books", booksRouter);
 app.use("/courses", courseRouter);
+app.use("/users", userRouter);
 
 /// HTTP METHODS - GET, POST, PATCH, PUT, DELETE
 
