@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "backend-dev": "nodemon --env-file=.env.local app.js",
-    "backend-prod": "node --env-file=.env app.js",
+    "backend-prod": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
