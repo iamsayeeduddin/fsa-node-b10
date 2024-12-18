@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { USER_ROLE } from "./constants.js";
+import multer from "multer";
 
 const getOptions = (req) => {
   const search = req.query.search || "";
@@ -75,4 +76,19 @@ const isSuperAdmin = (req, res, next) => {
   }
 };
 
-export { getOptions, authenticate, hashPassword, comparePassword, generateToken, verifyToken, isSuperAdmin };
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    // cb(null, file.originalname) Unchanged file Name
+    cb(null, `${Date.now()} - ${file.originalname}`);
+  },
+});
+
+const upload = multer({
+  storage,
+  limits: { fileSize: 2 * 1024 * 1024 },
+});
+
+export { upload, getOptions, authenticate, hashPassword, comparePassword, generateToken, verifyToken, isSuperAdmin };
